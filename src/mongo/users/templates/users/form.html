@@ -1,0 +1,10 @@
+<form class="account-form" method="POST"
+      action="{% if action_url %}{{ action_url }}{% else %}{% url 'login' %}{% endif %}">{% csrf_token %}
+    {% if next_url %}
+        <input type="hidden" name="next" value="{{ next_url }}" />
+    {% endif %}
+    {{ form }}
+    <div class="row">
+        <button type="submit" class="primary-btn mx-auto my-3">Submit</button>
+    </div>
+</form>
